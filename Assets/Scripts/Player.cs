@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private GameController _GameController;
+
     private Rigidbody2D rb2DPlayerComponent;
-
-    [Header("PLAYER SETTINGS")]
-    public float movementSpeedPlayer;
-
-    public float limitMovementMax_X;
-    public float limitMovementMin_X;
-    public float limitMovementMax_Y;
-    public float limitMovementMin_Y;
 
     private void Awake()
     {
+        _GameController = FindObjectOfType<GameController>();
+
         rb2DPlayerComponent = GetComponent<Rigidbody2D>();
     }
 
@@ -38,24 +34,24 @@ public class Player : MonoBehaviour
         float currentPositionPlayerX = transform.position.x;
         float currentPositionPlayerY = transform.position.y;
 
-        rb2DPlayerComponent.velocity = new Vector2(horizontalInput * movementSpeedPlayer, verticalInput * movementSpeedPlayer);
+        rb2DPlayerComponent.velocity = new Vector2(horizontalInput * _GameController.movementSpeedPlayer, verticalInput * _GameController.movementSpeedPlayer);
 
-        if (transform.position.x >= limitMovementMax_X)
+        if (transform.position.x >= _GameController.limitMovementMax_X)
         {
-            currentPositionPlayerX = limitMovementMax_X;
+            currentPositionPlayerX = _GameController.limitMovementMax_X;
         }
-        else if (transform.position.x <= limitMovementMin_X)
+        else if (transform.position.x <= _GameController.limitMovementMin_X)
         {
-            currentPositionPlayerX = limitMovementMin_X;
+            currentPositionPlayerX = _GameController.limitMovementMin_X;
         }
 
-        if (transform.position.y >= limitMovementMax_Y)
+        if (transform.position.y >= _GameController.limitMovementMax_Y)
         {
-            currentPositionPlayerY = limitMovementMax_Y;
+            currentPositionPlayerY = _GameController.limitMovementMax_Y;
         }
-        else if (transform.position.y <= limitMovementMin_Y)
+        else if (transform.position.y <= _GameController.limitMovementMin_Y)
         {
-            currentPositionPlayerY = limitMovementMin_Y;
+            currentPositionPlayerY = _GameController.limitMovementMin_Y;
         }
 
         transform.position = new Vector2(currentPositionPlayerX, currentPositionPlayerY);
