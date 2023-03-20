@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb2DPlayerComponent;
 
-    [Header("Player Settings")]
+    [Header("PLAYER SETTINGS")]
     public float movementSpeedPlayer;
 
     public float limitMovementMax_X;
