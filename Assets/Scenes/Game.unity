@@ -494,7 +494,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 56367a22ee98752438b9979105eba703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -514,7 +514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559874850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.039, y: -0.229, z: 0}
+  m_LocalPosition: {x: -3.027, y: -0.298, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 728496789}
@@ -737,7 +737,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4eedcb5718ef1cb4aada705fe0fdfeef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.60784316}
   m_FlipX: 0
@@ -807,6 +807,14 @@ MonoBehaviour:
   distanceToDestroyBridge: -8
   bridgeSizeForInstantiation: 8
   bridgePrefab: {fileID: 5582032242251715317, guid: f32d9991e209db14c9d5ac221bdd86b0, type: 3}
+  barrelSpeedMovement: -1.5
+  distanceToDestroyBarrel: -8
+  positionSpawnBarrelTop_Y: 0.054
+  positionSpawnBarrelBottom_Y: -0.232
+  orderTopBarrel: 1
+  orderBottomBarrel: 4
+  barrelPrefab: {fileID: 3642817554685984185, guid: c57a3245aca529243a3e49419008f060, type: 3}
+  timeToRespawnBarrel: 1
 --- !u!4 &1369356972
 Transform:
   m_ObjectHideFlags: 0
