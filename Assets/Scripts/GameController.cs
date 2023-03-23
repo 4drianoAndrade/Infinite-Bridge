@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private Player _Player;
+
     [Header("PLAYER SETTINGS")]
     public float movementSpeedPlayer;
 
@@ -29,11 +31,22 @@ public class GameController : MonoBehaviour
     public GameObject barrelPrefab;
     public float timeToRespawnBarrel;
 
-    private void Start()
+    [Header("GLOBAL VARIABLES")]
+    public float positionXPlayer;
+
+    [Header("GAME SCORE")]
+    public int gameScore;
+
+    private void Awake()
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
+        _Player = FindObjectOfType<Player>();
+    }
+
+    private void Start()
+    {
         StartCoroutine(SpawnBarril());
     }
 
@@ -66,5 +79,15 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(timeToRespawnBarrel);
         StartCoroutine(SpawnBarril());
+    }
+
+    private void LateUpdate()
+    {
+        positionXPlayer = _Player.transform.position.x;
+    }
+
+    public void ToScore(int amountOfPoints)
+    {
+        gameScore += amountOfPoints;
     }
 }

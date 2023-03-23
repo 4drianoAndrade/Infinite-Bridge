@@ -7,6 +7,8 @@ public class BarrelControl : MonoBehaviour
     private GameController _GameController;
     private Rigidbody2D rb2DBarrelComponent;
 
+    private bool isPunctuated;
+
     private void Awake()
     {
         _GameController = FindObjectOfType<GameController>();
@@ -23,6 +25,15 @@ public class BarrelControl : MonoBehaviour
         if (transform.position.x <= _GameController.distanceToDestroyBarrel)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (isPunctuated == false && transform.position.x < _GameController.positionXPlayer)
+        {
+            isPunctuated = true;
+            _GameController.ToScore(1);
         }
     }
 }
