@@ -56,4 +56,9 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector2(currentPositionPlayerX, currentPositionPlayerY);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("bateu");
+    }
 }
