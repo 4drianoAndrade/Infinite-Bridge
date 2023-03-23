@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class GameController : MonoBehaviour
 
     [Header("GAME SCORE")]
     public int gameScore;
+    public Text scoreTxt;
+
 
     private void Awake()
     {
@@ -90,6 +93,7 @@ public class GameController : MonoBehaviour
     public void ToScore(int amountOfPoints)
     {
         gameScore += amountOfPoints;
+        scoreTxt.text = "Score: " + gameScore.ToString();
     }
 
     public void ChangeScene(string destinationScene)
